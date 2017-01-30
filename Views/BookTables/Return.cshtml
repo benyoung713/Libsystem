@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Return";
+}
+
+<h2>Return Book</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h3>Are you sure you would like to return this book?</h3>
+    <br/>
+    <br/>
+<div class="returnbutton">
+    <input type="submit" value="Return Book" class="btn btn-default" />
+</div>
+}

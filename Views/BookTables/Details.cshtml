@@ -1,0 +1,79 @@
+﻿@model LibSystem.Models.BookTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Book Details</h2>
+
+<div>
+    <div class="col-md-2">
+        <img src="@Url.Content(Model.Image)" height="200" />
+    </div>
+    <div class="col-md-10">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+
+            <dt>
+                <label>On loan?</label>
+            </dt>
+
+            <dd>
+
+
+                @if (Model.OnLoan == 0)
+            {
+                    @:Available
+            }
+            else
+            {
+                    @:On loan
+            }
+            </dd>
+
+            <dt>
+                <label>Loaned to:</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MemberTable.Name)
+            </dd>
+
+        </dl>
+    </div>
+   @* if book is available, only loan button is visible. If on loan, only return button is visible *@
+        @if (Model.OnLoan == 0)
+        {
+        @Html.ActionLink("Loan", "Loan", new { id = Model.BookID }, new { @class = "btn btn-success" })
+        }
+        else
+        {
+        @Html.ActionLink("Return", "Return", new { id = Model.BookID }, new { @class = "btn btn-success" })
+        }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

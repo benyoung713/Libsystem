@@ -1,0 +1,52 @@
+﻿@model LibSystem.Models.MemberTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of Member</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        </dl>
+                
+            @if (Model.BookTable.Count > 0)
+            {
+                <dl class="dl-horizontal">
+                    <dt>Books currently on loan:</dt>
+
+                    @foreach (var book in Model.BookTable)
+                    {
+
+                        <dd>@Html.ActionLink(book.Title, "Details", "BookTables", new { id = book.BookID }, new { })</dd>
+                        
+                    }
+                </dl>
+            }
+
+
+                
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MemberID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

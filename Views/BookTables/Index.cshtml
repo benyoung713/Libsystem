@@ -23,7 +23,8 @@
 <br/>
 <br/>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Jump to Member Page", "Index", "MemberTables")
 </p>
 
 @using (Html.BeginForm())
@@ -86,7 +87,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
+            @Html.ActionLink("Loan Information", "Details", new { id=item.BookID }) |
             
         </td>
     </tr>

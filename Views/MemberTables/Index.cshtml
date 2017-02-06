@@ -10,7 +10,8 @@
 <h2>List of Members</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Jump to Book View", "Index", "BookTables")
 </p>
 <table class="table">
     <tr>
@@ -35,7 +36,7 @@
         
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MemberID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MemberID }) |
+            @Html.ActionLink("Loan Information", "Details", new { id=item.MemberID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.MemberID })
         </td>
     </tr>
